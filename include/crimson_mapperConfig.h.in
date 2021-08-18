@@ -1,0 +1,3 @@
+#define crimson_mapper_VERSION_MAJOR @crimson_mapper_VERSION_MAJOR@
+#define crimson_mapper_VERSION_MINOR @crimson_mapper_VERSION_MINOR@
+#define crimson_mapper_VERSION_PATCH @crimson_mapper_VERSION_PATCH@

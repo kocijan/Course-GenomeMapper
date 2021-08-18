@@ -1,2 +1,5 @@
 # Compiled object files
 build/
+.cache/
+.vscode/
+test/data/
