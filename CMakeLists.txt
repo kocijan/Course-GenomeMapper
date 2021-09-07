@@ -10,6 +10,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 add_subdirectory(src)
 add_subdirectory(test)
+add_subdirectory(include)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
@@ -29,6 +30,10 @@ enable_testing()
 # add_test(NAME ecoli12 COMMAND ${PROJECT_NAME} ${PROJECT_SOURCE_DIR}/test/data/GCF_000005845.2_ASM584v2_genomic.fna ${PROJECT_SOURCE_DIR}/test/data/MAP006-1_2D_pass.fasta ${PROJECT_SOURCE_DIR}/test/data/MAP006-2_2D_pass.fasta)
 
 target_compile_options(${PROJECT_NAME} PRIVATE
+  $<$<CXX_COMPILER_ID:MSVC>:/W4>
+  $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wall -Wextra -pedantic -Wconversion>
+)
+target_compile_options(crimson_alignment_engine PRIVATE
   $<$<CXX_COMPILER_ID:MSVC>:/W4>
   $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wall -Wextra -pedantic -Wconversion>
 )

@@ -1,8 +1,10 @@
 #include "bioparser/fasta_parser.hpp"
 #include "bioparser/fastq_parser.hpp"
+#include "crimson_alignment_engine.hpp"
 #include "include/crimson_mapperConfig.h"
 #include <algorithm>
 #include <cmath>
+#include <cstdint>
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
@@ -10,7 +12,6 @@
 #include <iostream>
 #include <iterator>
 #include <numeric>
-#include <stdint.h>
 #include <string>
 #include <vector>
 

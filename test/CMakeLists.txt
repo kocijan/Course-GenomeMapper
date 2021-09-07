@@ -19,5 +19,25 @@ target_link_libraries(
   gtest_main
 )
 
+add_executable(
+  alignment_test
+  alignment_test.cpp
+  ${PROJECT_SOURCE_DIR}/include/crimson_alignment_engine.hpp
+)
+target_link_libraries(
+  alignment_test
+  PUBLIC
+  gtest_main
+)
+target_link_libraries(alignment_test PUBLIC crimson_alignment_engine)
+
+target_include_directories(alignment_test PUBLIC ${PROJECT_SOURCE_DIR}/include)
+
+target_compile_options(alignment_test PRIVATE
+  $<$<CXX_COMPILER_ID:MSVC>:/W4>
+  $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wall -Wextra -pedantic -Wconversion>
+)
+
 include(GoogleTest)
 gtest_discover_tests(empty_test)
+gtest_discover_tests(alignment_test)

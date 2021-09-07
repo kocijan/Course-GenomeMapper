@@ -8,6 +8,11 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(bioparser)
 
-add_executable(${PROJECT_NAME} crimson_mapper.cpp)
-target_link_libraries(${PROJECT_NAME} bioparser)
+# include_directories(../include)
+# add_library(crimson_alignment_engine crimson_alignment_engine.cpp)
 
+add_executable(${PROJECT_NAME} crimson_mapper.cpp ${PROJECT_SOURCE_DIR}/include/crimson_alignment_engine.hpp)
+target_link_libraries(${PROJECT_NAME} PUBLIC bioparser)
+target_link_libraries(${PROJECT_NAME} PUBLIC crimson_alignment_engine)
+
+target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR}/include)
