@@ -29,11 +29,29 @@ target_link_libraries(
   PUBLIC
   gtest_main
 )
+
+add_executable(
+  minimizer_test
+  minimizer_test.cpp
+  ${PROJECT_SOURCE_DIR}/include/crimson_minimizer_engine.hpp
+)
+target_link_libraries(
+  minimizer_test
+  PUBLIC
+  gtest_main
+)
+
 target_link_libraries(alignment_test PUBLIC crimson_alignment_engine)
+target_link_libraries(minimizer_test PUBLIC crimson_minimizer_engine)
 
 target_include_directories(alignment_test PUBLIC ${PROJECT_SOURCE_DIR}/include)
+target_include_directories(minimizer_test PUBLIC ${PROJECT_SOURCE_DIR}/include)
 
 target_compile_options(alignment_test PRIVATE
+  $<$<CXX_COMPILER_ID:MSVC>:/W4>
+  $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wall -Wextra -pedantic -Wconversion>
+)
+target_compile_options(minimizer_test PRIVATE
   $<$<CXX_COMPILER_ID:MSVC>:/W4>
   $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-Wall -Wextra -pedantic -Wconversion>
 )
@@ -41,3 +59,4 @@ target_compile_options(alignment_test PRIVATE
 include(GoogleTest)
 gtest_discover_tests(empty_test)
 gtest_discover_tests(alignment_test)
+gtest_discover_tests(minimizer_test)

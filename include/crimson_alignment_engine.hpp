@@ -2,7 +2,6 @@
 #define CRIMSON_ALIGNMENT_ENGINE_HPP_
 
 #include <string>
-#include <vector>
 
 namespace crimson {
 

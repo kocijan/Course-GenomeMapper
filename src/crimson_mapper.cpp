@@ -1,6 +1,7 @@
 #include "bioparser/fasta_parser.hpp"
 #include "bioparser/fastq_parser.hpp"
 #include "crimson_alignment_engine.hpp"
+#include "crimson_minimizer_engine.hpp"
 #include "include/crimson_mapperConfig.h"
 #include <algorithm>
 #include <cmath>

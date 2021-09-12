@@ -1,1 +1,3 @@
 add_library(crimson_alignment_engine crimson_alignment_engine.cpp)
+
+add_library(crimson_minimizer_engine crimson_minimizer_engine.cpp)
