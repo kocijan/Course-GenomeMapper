@@ -10,6 +10,8 @@ int Align(const char *query, unsigned int query_len, const char *target,
           int gap, std::string *cigar, unsigned int *target_begin, int gap_open,
           int gap_extend) {
 
+  // TODO implement semiglobal alignment
+
   using std::string;
   using std::vector;
   using uint = unsigned int;
